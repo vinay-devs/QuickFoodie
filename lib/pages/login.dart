@@ -2,20 +2,19 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:secondapp/pages/homePage.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class login extends StatefulWidget {
-  login({Key? key}) : super(key: key);
+class Login extends StatelessWidget {
+  Login({Key? key}) : super(key: key);
 
-  @override
-  _loginState createState() => _loginState();
-}
+  final _mycontroller = TextEditingController();
 
-class _loginState extends State<login> {
   Future<http.StreamedResponse> loginUser() async {
-    Map<String, String> requestBody = <String, String>{'regno': regno};
+    Map<String, String> requestBody = <String, String>{
+      'regno': _mycontroller.text
+    };
     var request = http.MultipartRequest(
         "POST",
         Uri.parse(
@@ -25,10 +24,8 @@ class _loginState extends State<login> {
     return response;
   }
 
-  String regno = '';
   @override
   Widget build(BuildContext context) {
-    var _mycontroller = new TextEditingController();
     return MaterialApp(
         home: Scaffold(
       resizeToAvoidBottomInset: false,
@@ -52,7 +49,6 @@ class _loginState extends State<login> {
                     border: OutlineInputBorder(),
                     labelText: "Registration Number",
                   ),
-                  onChanged: (val) => regno = val,
                   controller: _mycontroller,
                 ),
               ),
@@ -70,21 +66,17 @@ class _loginState extends State<login> {
               //   ),
               // ),
 
-              RaisedButton(
-                  child: Text("Login"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const homePage(),
-                      ),
-                    );
-                    print(regno);
-                    loginUser();
-                    Fluttertoast.showToast(msg: regno);
+              ElevatedButton(
+                  child: const Text("Login"),
+                  onPressed: () async {
+                    Navigator.pushNamed(context, '/home');
+                    // loginUser();
+                    final prefs = await SharedPreferences.getInstance();
+                    prefs.setString('regno', _mycontroller.text);
+                    Fluttertoast.showToast(msg: _mycontroller.text);
                   }),
-              Padding(
-                padding: const EdgeInsets.only(top: 4),
+              const Padding(
+                padding: EdgeInsets.only(top: 4),
                 child: Text(
                     "*only accessible to students and faculties of VIT Bhopal*"),
               )

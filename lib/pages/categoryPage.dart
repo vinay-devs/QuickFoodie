@@ -1,103 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:secondapp/pages/homePage.dart';
-import '../items/specialItems.dart';
-import '../items/mealsItem.dart';
-import '../button/bottomNavigationBar.dart';
+import 'package:secondapp/items/mealsItem.dart';
+import 'package:secondapp/items/specialItems.dart';
 
-class category extends StatefulWidget {
-  const category({Key? key}) : super(key: key);
-
-  @override
-  State<category> createState() => _categoryState();
-}
-
-class _categoryState extends State<category> {
-  int _selectIndex = 0;
-  void _ontapped(int index) {
-    setState(() {
-      _selectIndex = index;
-    });
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => (homePage()),
-      ),
-    );
-  }
+class CategoryPage extends StatelessWidget {
+  const CategoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Quick Foodie"),
-      ),
-      body:
-          // SingleChildScrollView(
-          //   child:
-          // Container(
-          // height: 300,
-          //child:
-          SingleChildScrollView(
+    return SingleChildScrollView(
         child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "Explore Menu",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            Text(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+            padding: EdgeInsets.all(12),
+            child: const Text(
               "Special Items",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            Container(
-              child: specialItems(),
-              height: 300,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(0),
-              child: Text(
-                "Meals",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.black),
-              ),
-            ),
-            // mealsItem(),
-          ],
+            )),
+        Container(
+          child: const SpecialItems(),
+          height: 400,
         ),
-      ),
-      // ),
-
-      //),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+        const Padding(
+          padding: EdgeInsets.all(12),
+          child: Text(
+            "Meals",
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'About Us',
-          ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.chat),
-          //   label: 'Chats',
-          // ),
-        ],
-        currentIndex: _selectIndex,
-        onTap: _ontapped,
-      ),
-    );
+        ),
+        Container(
+          child: const MealsItems(),
+          height: 400,
+        ),
+      ],
+    ));
   }
 }

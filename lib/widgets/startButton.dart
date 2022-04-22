@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:secondapp/pages/login.dart';
 
 class startButton extends StatelessWidget {
   const startButton({
@@ -12,10 +11,7 @@ class startButton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 1.0),
       child: RaisedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => login()),
-          );
+          Navigator.pushNamed(context, '/login');
         },
         padding: EdgeInsets.all(20),
         shape: RoundedRectangleBorder(

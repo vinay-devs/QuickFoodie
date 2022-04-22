@@ -35,14 +35,7 @@ class homePage extends StatelessWidget {
                   style: TextStyle(fontSize: 50, fontStyle: FontStyle.italic),
                 ),
                 RaisedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => category(),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   child: Text(
                     "Order Now!!",
                     style: TextStyle(),
