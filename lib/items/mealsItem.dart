@@ -6,9 +6,14 @@ class mealsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 20,
       child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[],
+        children: <Widget>[
+          Container(
+            height: 200,
+            child: Image.asset("images/mealsItems/Chapathi-Curry.png"),
+          )
+        ],
       ),
     );
   }

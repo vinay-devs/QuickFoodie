@@ -9,7 +9,8 @@ class specialItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 20),
-      height: 190,
+      //height: 190,
+      //child: Expanded(
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.only(left: 5),
@@ -19,7 +20,14 @@ class specialItems extends StatelessWidget {
             child: Expanded(
               child: Column(
                 children: [
-                  Image.asset("images/specialItems/Chettinad Fishfry.png"),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: SizedBox.fromSize(
+                      size: Size.fromRadius(120),
+                      child: Image.asset(
+                          "images/specialItems/Chettinad Fishfry.png"),
+                    ),
+                  ),
                   Text(
                     "Chettinad Fish fry - Rs.110",
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -32,7 +40,13 @@ class specialItems extends StatelessWidget {
             padding: EdgeInsets.only(right: 8),
             child: Column(
               children: [
-                Image.asset("images/specialItems/Chicken_Pasta.png"),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: SizedBox.fromSize(
+                    size: Size.fromRadius(120),
+                    child: Image.asset("images/specialItems/Chicken_Pasta.png"),
+                  ),
+                ),
                 Text(
                   "Chicken Pasta - Rs.140 ",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -44,7 +58,13 @@ class specialItems extends StatelessWidget {
             padding: EdgeInsets.only(right: 8),
             child: Column(
               children: [
-                Image.asset("images/specialItems/Lemon Chicken.png"),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: SizedBox.fromSize(
+                    size: Size.fromRadius(120),
+                    child: Image.asset("images/specialItems/Lemon Chicken.png"),
+                  ),
+                ),
                 Text(
                   "Lemon Chicken - Rs.120",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -56,7 +76,14 @@ class specialItems extends StatelessWidget {
             padding: EdgeInsets.only(right: 8),
             child: Column(
               children: [
-                Image.asset("images/specialItems/Paneer Masala.png"),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: SizedBox.fromSize(
+                    size: Size.fromRadius(120),
+                    child: Image.asset("images/specialItems/Paneer Masala.png"),
+                  ),
+                ),
+                //Image.asset("images/specialItems/Paneer Masala.png"),
                 Text(
                   "Paneer Masala - Rs.100",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -66,6 +93,7 @@ class specialItems extends StatelessWidget {
           ),
         ],
       ),
+      //  ),
     );
   }
 }
