@@ -9,11 +9,10 @@ class MealsItems extends StatelessWidget {
   }) : super(key: key);
 
   static List<Item> sampleItems = [
-    Item(1, 'Chettinad Fishfry', 110,
-        "images/specialItems/Chettinad Fishfry.png"),
-    Item(2, 'Chicken Pasta', 110, "images/specialItems/Chicken_Pasta.png"),
-    Item(3, 'Lemon Chicken', 70, "images/specialItems/Lemon Chicken.png"),
-    Item(4, 'Paneer Masala', 60, "images/specialItems/Paneer Masala.png"),
+    Item(5, 'Chapathi Curry', 60, "images/mealsItems/Chapathi-Curry.png"),
+    Item(6, 'Chicken Biriyani', 110, "images/mealsItems/Chicken Biriyani.png"),
+    Item(7, 'Dosa Chutney', 40, "images/mealsItems/Dosa Chutney.png"),
+    Item(8, 'Lunch Meal', 50, "images/mealsItems/Lunch Meal.png"),
   ];
 
   @override

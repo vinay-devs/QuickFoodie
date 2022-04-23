@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:secondapp/pages/paymentPage.dart';
 
 import '../CartModel.dart';
 
@@ -20,9 +21,22 @@ class _CartpageState extends State<Cartpage> {
                   child: ListView(
                 padding: const EdgeInsets.all(8.0),
                 children: [
-                  Text("Your Items",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Your Items",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      IconButton(
+                          onPressed: (() {
+                            Provider.of<CartModel>(context, listen: false)
+                                .removeAll();
+                          }),
+                          icon: Icon(Icons.remove_shopping_cart))
+                    ],
+                  ),
                   ...cart.items.asMap().entries.map((e) {
                     var index = e.key;
                     var element = e.value;
@@ -76,15 +90,35 @@ class _CartpageState extends State<Cartpage> {
                           padding: EdgeInsets.all(8),
                           child: ElevatedButton(
                             child: Text("Checkout"),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => payment()));
+                            },
                           ))
                     ],
                   ))
             ])
           : Center(
-              child: Text("No Items In Cart",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
+              child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset("images/nocart.png"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Your Cart Is Empty",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Text("Good food is always cooking! "),
+                Text("Go ahead,order some yummy items from the menu.")
+              ],
+            )),
     );
   }
 }

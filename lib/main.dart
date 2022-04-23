@@ -6,6 +6,8 @@ import 'package:secondapp/pages/getStartPage.dart';
 import 'package:secondapp/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'widgets/startButton.dart';
+import './pages/paymentPage.dart';
 
 import 'CartModel.dart';
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:secondapp/CartModel.dart';
 import 'package:secondapp/pages/CartPage.dart';
 import 'package:secondapp/pages/categoryPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,10 +20,6 @@ class _TabbedPagesState extends State<TabbedPages> {
   static const List<Widget> _widgetOptions = <Widget>[
     CategoryPage(),
     Cartpage(),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -69,6 +67,8 @@ class _TabbedPagesState extends State<TabbedPages> {
                       value: 1,
                       onTap: () {
                         removeRegNo();
+                        Provider.of<CartModel>(context, listen: false)
+                            .removeAll();
                       },
                     ),
                   ])
@@ -78,8 +78,8 @@ class _TabbedPagesState extends State<TabbedPages> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.category_outlined),
+            label: 'Category',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_basket),
