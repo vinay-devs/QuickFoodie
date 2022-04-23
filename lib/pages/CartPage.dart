@@ -68,7 +68,7 @@ class _CartpageState extends State<Cartpage> {
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
                     subtitle: Text("Inc Taxes"),
-                    trailing: Text("Rs.30"),
+                    trailing: Text("Rs.10"),
                   ),
                 ],
               )),
@@ -84,7 +84,7 @@ class _CartpageState extends State<Cartpage> {
                       Padding(
                           padding: EdgeInsets.all(8),
                           child:
-                              Text("Rs." + (cart.totalPrice + 30).toString())),
+                              Text("Rs." + (cart.totalPrice + 10).toString())),
                       Spacer(),
                       Padding(
                           padding: EdgeInsets.all(8),

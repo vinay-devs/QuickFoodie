@@ -19,7 +19,6 @@ class MealsItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 8),
-      //child: Expanded(
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.only(left: 5, bottom: 20),

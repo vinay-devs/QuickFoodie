@@ -11,18 +11,18 @@ class Login extends StatelessWidget {
 
   final _mycontroller = TextEditingController();
 
-  Future<http.StreamedResponse> loginUser() async {
-    Map<String, String> requestBody = <String, String>{
-      'regno': _mycontroller.text
-    };
-    var request = http.MultipartRequest(
-        "POST",
-        Uri.parse(
-            'http://10.0.2.2:8888/FOOD-DELIVERY-WEBSITE/src/pages/get_user.php'))
-      ..fields.addAll(requestBody);
-    var response = await request.send();
-    return response;
-  }
+  // Future<http.StreamedResponse> loginUser() async {
+  //   Map<String, String> requestBody = <String, String>{
+  //     'regno': _mycontroller.text
+  //   };
+  //   var request = http.MultipartRequest(
+  //       "POST",
+  //       Uri.parse(
+  //           'http://10.0.2.2:8888/FOOD-DELIVERY-WEBSITE/src/pages/get_user.php'))
+  //     ..fields.addAll(requestBody);
+  //   var response = await request.send();
+  //   return response;
+  // }
 
   @override
   Widget build(BuildContext context) {
